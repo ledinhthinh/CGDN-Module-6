@@ -1,0 +1,91 @@
+<div class="card" style="width: 81%; margin-left: 18rem; height: 904px">
+    <div style="text-align: center; color: cornflowerblue">
+      <h1>Customer Management</h1>
+    </div>
+    <div align="center" style="color: rgb(163, 90, 247)">
+      <h2>List of Customer</h2>
+      <table class="table-sm table-striped table-bordered" id="tableCustomer">
+        <thead>
+          <tr class="table-active">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th style="text-align: center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.gender }}</td>
+            <td>{{ customer.address }}</td>
+            <td>
+              <a
+            
+                class="btn btn-outline-info"
+                >Edit</a
+              >
+              &nbsp;
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                (click)="delete(customer.id, customer.name)"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Delete
+              </button>
+              <!-- Modal -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <br />
+      <a [routerLink]="['/create']" class="btn btn-outline-success btn-sm w-25"
+        >Add New Customer</a
+      >
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete
+            <a>{{ customerName }}</a> ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+            <button
+              (click)="deleteCustomer(customerId)"
+              data-dismiss="modal"
+              class="btn btn-outline-danger"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

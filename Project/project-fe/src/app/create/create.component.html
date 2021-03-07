@@ -1,0 +1,43 @@
+<div class="card" style="width: 81%; margin-left: 18rem; height: 904px">
+  <div style="text-align: center; color: cornflowerblue">
+    <h1>Customer Management</h1>
+  </div>
+  <div align="center" style="color: rgb(163, 90, 247)">
+    <form method="post" [formGroup]="formAddNewCustomer">
+      <h2>Add New Customer</h2>
+      <table class="table-sm">
+        <tr>
+          <th>Id</th>
+          <td><input type="text" formControlName="id" /></td>
+        </tr>
+
+        <tr>
+          <th>Name</th>
+          <td><input type="text" formControlName="name" /></td>
+        </tr>
+        <tr>
+          <th>Gender</th>
+          <td><input type="text" formControlName="gender" /></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td><input type="text" formControlName="address" /></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button
+              (click)="returnListCustomer()"
+              class="btn btn-outline-secondary"
+            >
+              Close
+            </button>
+            &nbsp;
+            <button (click)="addNewCustomer()" class="btn btn-outline-success">
+              Save
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
